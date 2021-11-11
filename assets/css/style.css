@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+  }
+
+ .low {
+   background-color: greenyellow;
+ }
+
+ .moderate {
+   background-color: yellow;
+ }
+
+ .high {
+   background-color: orange;
+ }
+
+ .very-high {
+   background-color: orangered;
+ }
