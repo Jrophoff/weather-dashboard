@@ -17,17 +17,25 @@
     </header>
     <div class="container">
         <div class="row">
-            <fieldset class="form col-2 border border-dark">
+            <fieldset class="form form col-2">
                 <legend class="">Search For City:</legend>
                 <input id="cityInput" class="form-control" type="text" placeholder="San Diego">
                 <br>
-                <button id="submitBtn" class="">submit</button>
+                <button id="submitBtn" class="btn">submit</button>
                 <div class="prevSearch">
+                    <div id="recentSearch0"></div>
+                    <div id="recentSearch1"></div>
+                    <div id="recentSearch2"></div>
+                    <div id="recentSearch3"></div>
+                    <div id="recentSearch4"></div>
+                    <div id="recentSearch5"></div>
+                    <div id="recentSearch6"></div>
+                    <div id="recentSearch7"></div>
                 </div>
             </fieldset>
-            <fieldset id=mainWeather class="col-8 ">
-                <div id=mainWeather class="border border-dark">
-                    <h3 id="icon0" class="current-city"><span id="currentCity"></span> <span id="currentDate"></span><img></h3>
+            <fieldset id=mainWeather class="col-8 row">
+                <div id=mainWeather class="main-weather border border-dark">
+                    <h3 id="icon0" class="current-city"><span id="currentCity"></span> <span id="currentDate"></span><img id="img0"></h3>
                     <br>
                     <h5 class="temp0">Temp: <span id="temp0"></span></h5>
                     <br>
@@ -38,70 +46,48 @@
                     <h5 class="uvIndex">UV Index: <span id="uvIndex" class="low"></span></h5>
                     <br>
                 </div>
-                <div id="fiveDay" class="border border-dark container">
+                <div id="fiveDay">
                     <div class="row">
                     <h4>Five Day Forcast</h4>
-                    <div class="col">
+                    <div class="fiveDay border border-dark col">
                         <h5><span id="first"></span> </h5>
-                        <h6 id="icon1"></h6>
+                        <img id="img1">
                         <h6 class="temp1">Temp: <span id="temp1"></span></h6>
-                        <br>
                         <h6 class="wind1">Wind: <span id="wind1"></span></h6>
-                        <br>
                         <h6 class="humidity1">Humidity: <span id="humidity1"></span></h6>
-                        <br>
                     </div>
-                    <div class="col">
+                    <div class="fiveDay border border-dark col">
                         <h5><span id="second"></span> </h5>
-                        <h6 id="icon2"></h6>
+                        <img id="img2">
                         <h6 class="temp2">Temp: <span id="temp2"></span></h6>
-                        <br>
                         <h6 class="wind2">Wind: <span id="wind2"></span></h6>
-                        <br>
                         <h6 class="humidity2">Humidity: <span id="humidity2"></span></h6>
-                        <br>
                     </div>
-                    <div class="col">
+                    <div class="fiveDay border border-dark col">
                         <h5><span id="third"></span> </h5>
-                        <h5 id="icon3"></h5>
+                        <img id="img3">
                         <h6 class="temp3">Temp: <span id="temp3"></span></h6>
-                        <br>
                         <h6 class="wind3">Wind: <span id="wind3"></span></h6>
-                        <br>
                         <h6 class="humidity3">Humidity: <span id="humidity3"></span></h6>
-                        <br>
                     </div>
-                    <div class="col">
+                    <div class="fiveDay border border-dark col">
                         <h5><span id="fourth"></span> </h5>
-                        <h5 id="icon4"></h5>
+                        <img id="img4">
                         <h6 class="temp4">Temp: <span id="temp4"></span></h6>
-                        <br>
                         <h6 class="wind4">Wind: <span id="wind4"></span></h6>
-                        <br>
                         <h6 class="humidity4">Humidity: <span id="humidity4"></span></h6>
-                        <br>
                     </div>
-                    <div class="col">
+                    <div class="fiveDay border border-dark col">
                         <h5><span id="fifth"></span> </h5>
-                        <h5 id="icon5"></h5>
+                        <img id="img5">
                         <h6 class="temp5">Temp: <span id="temp5"></span></h6>
-                        <br>
                         <h6 class="wind5">Wind: <span id="wind5"></span></h6>
-                        <br>
                         <h6 class="humidity5">Humidity: <span id="humidity5"></span></h6>
-                        <br>
                     </div>
                 </div>
             </div>
         </div>
         </fieldset>
-    </div>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
         integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
