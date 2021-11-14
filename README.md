@@ -21,8 +21,7 @@ I built a weather app that allows the user to check the current weather conditio
 
 ## Screen Shot:
 
-![image](https://user-images.githubusercontent.com/90431294/140234320-926de6e3-20b9-4586-9914-25077dc56824.png)
-
+![image](https://user-images.githubusercontent.com/90431294/141695223-e5be7455-b126-44cd-bad5-bed8c3e0b176.png)
 
 
 ## Link to site:
