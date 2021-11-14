@@ -15,22 +15,25 @@
     <header class="jumbotron">
         <h1 class="display-4 d-flex justify-content-center">Weather Dashboard</h1>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <fieldset class="form col-2 ">
+            <!-- search by city -->
+            <fieldset class="form col-md-2 col-xs-12">
                 <div class="border-bottom border-dark">
-                <legend class="">Search For City:</legend>
-                <input id="cityInput" class="form-control" type="text" placeholder="Detroit">
-                <br>
-                <button id="submitBtn" class="btn btn-secondary mb-3">submit</button>
-            </div>
+                    <legend class="">Search For City:</legend>
+                    <input id="cityInput" class="form-control" type="text" placeholder="Grand Rapids">
+                    <br>
+                    <button id="submitBtn" class="btn btn-secondary mb-3">submit</button>
+                </div>
                 <div id="prevSearch" class="prevSearch mt-3">
-                
+                    <!-- previous search landing -->
                 </div>
             </fieldset>
-            <fieldset id=mainWeather class="col-8 row">
+            <!-- main forecast -->
+            <fieldset id=mainWeather class="col-md-8 row col-xs-12">
                 <div id=mainWeather class="main-weather border border-dark">
-                    <h3 id="icon0" class="current-city"><span id="currentCity"></span> <span id="currentDate"></span><img id="img0"></h3>
+                    <h3 id="icon0" class="current-city"><span id="currentCity"></span> <span
+                            id="currentDate"></span><img id="img0"></h3>
                     <br>
                     <h5 class="temp0">Temp: <span id="temp0"></span></h5>
                     <br>
@@ -41,54 +44,54 @@
                     <h5 class="uvIndex">UV Index: <span id="uvIndex" class="low"></span></h5>
                     <br>
                 </div>
+                <!-- five day forecast -->
                 <div id="fiveDay">
                     <div class="row">
-                    <h4>Five Day Forcast</h4>
-                    <div class="fiveDay border border-dark col">
-                        <h5><span id="first"></span> </h5>
-                        <img id="img1">
-                        <h6 class="temp1">Temp: <span id="temp1"></span></h6>
-                        <h6 class="wind1">Wind: <span id="wind1"></span></h6>
-                        <h6 class="humidity1">Humidity: <span id="humidity1"></span></h6>
-                    </div>
-                    <div class="fiveDay border border-dark col">
-                        <h5><span id="second"></span> </h5>
-                        <img id="img2">
-                        <h6 class="temp2">Temp: <span id="temp2"></span></h6>
-                        <h6 class="wind2">Wind: <span id="wind2"></span></h6>
-                        <h6 class="humidity2">Humidity: <span id="humidity2"></span></h6>
-                    </div>
-                    <div class="fiveDay border border-dark col">
-                        <h5><span id="third"></span> </h5>
-                        <img id="img3">
-                        <h6 class="temp3">Temp: <span id="temp3"></span></h6>
-                        <h6 class="wind3">Wind: <span id="wind3"></span></h6>
-                        <h6 class="humidity3">Humidity: <span id="humidity3"></span></h6>
-                    </div>
-                    <div class="fiveDay border border-dark col">
-                        <h5><span id="fourth"></span> </h5>
-                        <img id="img4">
-                        <h6 class="temp4">Temp: <span id="temp4"></span></h6>
-                        <h6 class="wind4">Wind: <span id="wind4"></span></h6>
-                        <h6 class="humidity4">Humidity: <span id="humidity4"></span></h6>
-                    </div>
-                    <div class="fiveDay border border-dark col">
-                        <h5><span id="fifth"></span> </h5>
-                        <img id="img5">
-                        <h6 class="temp5">Temp: <span id="temp5"></span></h6>
-                        <h6 class="wind5">Wind: <span id="wind5"></span></h6>
-                        <h6 class="humidity5">Humidity: <span id="humidity5"></span></h6>
+                        <h4>Five Day Forcast</h4>
+                        <div class="fiveDay border border-dark col">
+                            <h5><span id="first"></span> </h5>
+                            <img id="img1">
+                            <h6 class="temp1">Temp: <span id="temp1"></span></h6>
+                            <h6 class="wind1">Wind: <span id="wind1"></span></h6>
+                            <h6 class="humidity1">Humidity: <span id="humidity1"></span></h6>
+                        </div>
+                        <div class="fiveDay border border-dark col">
+                            <h5><span id="second"></span> </h5>
+                            <img id="img2">
+                            <h6 class="temp2">Temp: <span id="temp2"></span></h6>
+                            <h6 class="wind2">Wind: <span id="wind2"></span></h6>
+                            <h6 class="humidity2">Humidity: <span id="humidity2"></span></h6>
+                        </div>
+                        <div class="fiveDay border border-dark col">
+                            <h5><span id="third"></span> </h5>
+                            <img id="img3">
+                            <h6 class="temp3">Temp: <span id="temp3"></span></h6>
+                            <h6 class="wind3">Wind: <span id="wind3"></span></h6>
+                            <h6 class="humidity3">Humidity: <span id="humidity3"></span></h6>
+                        </div>
+                        <div class="fiveDay border border-dark col">
+                            <h5><span id="fourth"></span> </h5>
+                            <img id="img4">
+                            <h6 class="temp4">Temp: <span id="temp4"></span></h6>
+                            <h6 class="wind4">Wind: <span id="wind4"></span></h6>
+                            <h6 class="humidity4">Humidity: <span id="humidity4"></span></h6>
+                        </div>
+                        <div class="fiveDay border border-dark col">
+                            <h5><span id="fifth"></span> </h5>
+                            <img id="img5">
+                            <h6 class="temp5">Temp: <span id="temp5"></span></h6>
+                            <h6 class="wind5">Wind: <span id="wind5"></span></h6>
+                            <h6 class="humidity5">Humidity: <span id="humidity5"></span></h6>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
         </fieldset>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>

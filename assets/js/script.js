@@ -1,5 +1,7 @@
+// api key
 let apiKey = "d3c97a47070993975a1faeb682d45853";
 
+// date format
 let date0 = moment().format("L");
 let date1 = moment().add(1, 'day').format("L");
 let date2 = moment().add(2, 'day').format("L");
@@ -7,32 +9,44 @@ let date3 = moment().add(3, 'day').format("L");
 let date4 = moment().add(4, 'day').format("L");
 let date5 = moment().add(5, 'day').format("L");
 
-
-let currentCity = document.querySelector("#currentCity");
-let currentDate = document.querySelector("#currentDate");
-let temp = document.querySelector("#temp")
-let wind = document.querySelector("#wind")
-let humidity = document.querySelector("#humidity")
-
-// local storage
-let search0 = "";
-let search1 = "";
-let search2 = "";
-let search3 = "";
-let search4 = "";
-let search5 = "";
-let search6 = "";
-let search7 = "";
-
-
+// submit button with enter key
 $(".form").on("keyup", ".form-control", function (e) {
     e.preventDefault();
     if ("Enter" === e.originalEvent.code) {
         let city = $("#cityInput").val();
 
-        console.log(e.originalEvent.code);
+        // console.log(e.originalEvent.code);
 
+        // local history
         let weatherHistory = JSON.parse(localStorage.getItem("list"))
+
+        if (weatherHistory === null) {
+            weatherHistory = []
+        }
+
+        if (weatherHistory.length === 8) {
+            weatherHistory.shift()
+        }
+        weatherHistory.push(city)
+
+        let history = $("<div class='btn mb-2' btn-secondary>")
+        history.text(city)
+
+        $("#prevSearch").prepend(history);
+
+        localStorage.setItem("list", JSON.stringify(weatherHistory))
+
+
+        getWeatherByCity(city);
+    };
+});
+
+// submit button click function
+$("#submitBtn").click(function () {
+    let city = $("#cityInput").val();
+
+    // local history
+    let weatherHistory = JSON.parse(localStorage.getItem("list"))
 
     if (weatherHistory === null) {
         weatherHistory = []
@@ -43,33 +57,7 @@ $(".form").on("keyup", ".form-control", function (e) {
     }
     weatherHistory.push(city)
 
-    let history = $("<div class='btn btn-secondary mb-2'>")
-    history.text(city)
-
-    $("#prevSearch").prepend(history);
-
-    localStorage.setItem("list", JSON.stringify(weatherHistory))
-
-
-        getWeatherByCity(city);
-    };
-});
-
-$("#submitBtn").click(function () {
-    // debugger;
-    let city = $("#cityInput").val();
-    let weatherHistory = JSON.parse(localStorage.getItem("list"))
-
-    if (weatherHistory === null) {
-        weatherHistory = []
-    }
-
-    if (weatherHistory.length === 8){
-        weatherHistory.shift()
-    }
-    weatherHistory.push(city)
-
-    let history = $("<div class='btn btn-secondary mb- 2'>")
+    let history = $("<div class='btn mb- 2'btn-secondary>")
     history.text(city)
 
     $("#prevSearch").prepend(history);
@@ -79,8 +67,9 @@ $("#submitBtn").click(function () {
     getWeatherByCity(city);
 })
 
+// retrieve from local history 
 function showList() {
-// debugger;
+
     let weatherHistory = JSON.parse(localStorage.getItem("list"))
 
     if (weatherHistory !== null) {
@@ -88,17 +77,18 @@ function showList() {
             let history = $("<div class='btn mb-2 btn-secondary'>")
             history.text(weatherHistory[i])
             $("#prevSearch").prepend(history);
-            
+
         }
     }
 }
 
-$("#prevSearch").click(function () {
+// previous search buttons
+$("#prevSearch").on("click", ".btn", function () {
     let city = $(this).text();
     getWeatherByCity(city);
 });
 
-// api by city
+// API by city
 let getWeatherByCity = function (city) {
 
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
@@ -115,7 +105,7 @@ let getWeatherByCity = function (city) {
                 // city
                 $("#currentCity").html(data.name);
 
-                // call other API functions
+                // call API by coordinates
                 getWeatherByCoord(lat, lon);
 
             });
@@ -129,7 +119,7 @@ let getWeatherByCity = function (city) {
             alert("Unable to connect to weather");
         });
 };
-// api by cooridantes
+// API by coordinates
 let getWeatherByCoord = function (lat, lon) {
 
     let apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + apiKey;
@@ -144,7 +134,7 @@ let getWeatherByCoord = function (lat, lon) {
 
                 uvi = data.current.uvi;
 
-                // today
+                // current forecast
                 $("#currentDate").html(date0);
                 $("#img0").attr("src", "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png");
                 $("#currentCity").html(data.name);
@@ -183,15 +173,16 @@ let getWeatherByCoord = function (lat, lon) {
                 $("#wind5").html(data.daily[1].wind_speed + " MPH");
                 $("#humidity5").html(data.daily[1].humidity + "%");
 
-                // uv Index
-                if (uvi > 2 && uvi <= 5) {
-                    $("#uvIndex").addClass("moderate");
-                } else if (uvi >= 6 && uvi <= 7) {
-                    $("#uvIndex").addClass("high");
+                // uv index
+                if (uvi > 2 && uvi <= 5.99) {
+                    $("#uvIndex").addClass("moderate").removeClass("high very-high");
+                } else if (uvi >= 6 && uvi <= 7.99) {
+                    $("#uvIndex").addClass("high").removeClass("moderate very-high");
                 } else if (uvi >= 8) {
-                    $("#uvIndex").addClass("very-high")
+                    $("#uvIndex").addClass("very-high").removeClass("moderate high");
+                } else if (uvi <= 2) {
+                    $("#uvIndex").removeClass("moderate high very-high");
                 }
-
             });
         } else {
             alert("Error: city not found");
@@ -207,5 +198,7 @@ let getWeatherByCoord = function (lat, lon) {
 
 
 
-getWeatherByCity("detroit");
+getWeatherByCity("Grand Rapids");
 showList();
+
+
